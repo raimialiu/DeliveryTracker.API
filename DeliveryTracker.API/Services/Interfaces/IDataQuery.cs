@@ -10,6 +10,6 @@ namespace DeliveryTracker.API.Services.Interfaces
     {
         Task<List<Item>> GetAllAsync(int pageIndex, int pageSize);
         Task<Item> GetByIdAsync(string id);
-        Task<IEnumerable<Item>> QueryAsync(Func<Item, bool> predicate, int pageIndesx, int pageSize);
+        Task<List<Item>> QueryAsync(Func<Item, bool> predicate, int pageIndesx, int pageSize);
     }
 }

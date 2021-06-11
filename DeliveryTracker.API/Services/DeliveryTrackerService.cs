@@ -86,7 +86,7 @@ namespace DeliveryTracker.API.Services
 
         public async Task<List<Item>> GetAllItemsBasedOnStatus(string status, int pageIndex, int pageSize)
         {
-            return (List<Item>)await _query.QueryAsync(x => x.status == status, pageIndex, pageSize);
+            return await _query.QueryAsync(x => x.status == status, pageIndex, pageSize);
         }
 
         public Item getItemInformation(string itemId)

@@ -28,12 +28,12 @@ namespace DeliveryTracker.API.Services.Data
             return items.FirstOrDefault(predicate);
         }
 
-        public async Task<IEnumerable<Item>> QueryAsync(Func<Item, bool> predicate, int pageIndesx, int pageSize)
+        public async Task<List<Item>> QueryAsync(Func<Item, bool> predicate, int pageIndesx, int pageSize)
         {
             return items.Where(predicate)
                     .Skip((pageIndesx - 1) * pageSize)
                     .Take(pageSize)
-                    .AsEnumerable();
+                    .ToList();
         }
     }
 }
