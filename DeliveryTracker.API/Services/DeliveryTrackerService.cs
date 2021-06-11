@@ -27,6 +27,22 @@ namespace DeliveryTracker.API.Services
             return await _command.Create(item);
         }
 
+        public async Task<bool> UpdateItemInfo(string id, Item item)
+        {
+            var getItemInfo = getItemInformation(id);
+            if (getItemInfo == null)
+            {
+                return false;
+            }
+
+            if (getItemInfo.status == ItemStatus.DEVELIVERED
+                || getItemInfo.status == ItemStatus.PICKED_UP)
+            {
+                return false;
+            }
+
+            return await _command.update(id, item);
+        }
         async Task Samples(int n=10)
         {
             for(int i =0;i<n;i++)
@@ -102,6 +118,12 @@ namespace DeliveryTracker.API.Services
         public async Task<List<Item>> AllItems(int pageIndex, int pageSize)
         {
             return await _query.GetAllAsync(pageIndex, pageSize);
+        }
+
+        public List<Item> GetsampleData()
+        {
+            Samples(300);
+            return store;
         }
     }
 }

@@ -13,5 +13,7 @@ namespace DeliveryTracker.API.Services.Interfaces
         Task<List<Item>> GetAllItemsBasedOnStatus(string status, int pageIndex, int pageSize);
         Task<bool> createNewItem(Item item);
         Task<List<Item>> AllItems(int pageIndex, int pageStatus);
+        List<Item> GetsampleData();
+        Task<bool> UpdateItemInfo(string id, Item item);
     }
 }
