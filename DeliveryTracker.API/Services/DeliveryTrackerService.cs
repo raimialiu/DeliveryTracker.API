@@ -98,5 +98,10 @@ namespace DeliveryTracker.API.Services
         {
             return _query.GetByIdAsync(itemId).Result.status;
         }
+
+        public async Task<List<Item>> AllItems(int pageIndex, int pageSize)
+        {
+            return await _query.GetAllAsync(pageIndex, pageSize);
+        }
     }
 }

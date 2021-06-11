@@ -11,6 +11,12 @@ namespace DeliveryTracker.API.Models.DTOs.ApiRequest
        
     }
 
+    public class QueryDTO
+    {
+        public int pageIndex { get; set; }
+        public int pageSize { get; set; }
+    }
+
     public class ItemRequestDTO
     { 
         public string itemId { get; set; }
