@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <Folder Include="Models\DTOs\ApiRequest\" />
-    <Folder Include="Models\DTOs\ApiResponse\" />
   </ItemGroup>
 
 </Project>
