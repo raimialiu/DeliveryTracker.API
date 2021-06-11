@@ -80,13 +80,21 @@ namespace DeliveryTracker.API.Controllers
             return BadRequest(GenericResponse<string>.Failed("failed to process item for delivery"));
         }
 
+        [Route("trackItemStatus/{itemId}")]
+        [HttpGet]
+        public async Task<IActionResult> TrackItemStatusAsync(string itemId)
+        {
+            var response =  _service.getItemInformation(itemId);
+
+            return Ok(GenericResponse<string>.Success(response.status));
+        }
         [Route("trackItem/{itemId}")]
         [HttpGet]
         public async Task<IActionResult> TrackItemAsync(string itemId)
         {
             var response =  _service.getItemInformation(itemId);
 
-            return Ok(GenericResponse<string>.Success(response.status));
+            return Ok(GenericResponse<Item>.Success(response));
         }
     }
 }
